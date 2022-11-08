@@ -1,4 +1,5 @@
 import React from 'react';
+import { createPortal } from 'react-dom';
 import Comment from './Comment';
 import './Comments.css';
 
@@ -7,8 +8,11 @@ const Comments = props => {
   const { comments } = props;
 
   return (
-    <div>
+    <div> 
       {/* map through the comments prop and render a Comment for every piece of data */}
+      { comments.map(comment=> {
+        return <Comment comment={comment} key={comment.id}/>
+      }) }
     </div>
   );
 };
